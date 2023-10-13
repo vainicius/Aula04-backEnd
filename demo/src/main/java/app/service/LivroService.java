@@ -22,6 +22,7 @@ public class LivroService {
         livro.setNome(livroDTO.getNome());
         livro.setGenero(livroDTO.getGenero());
         livro.setAutor(livroDTO.getAutor());
+        livro.setId(livroDTO.getId());
         return livro;
     }
     private LivroDTO toLivroDTO(Livro livro){
@@ -29,6 +30,7 @@ public class LivroService {
         livroDTO.setNome(livro.getNome());
         livroDTO.setGenero(livro.getGenero());
         livroDTO.setAutor(livro.getAutor());
+        livroDTO.setId(livro.getId());
         return livroDTO;
     }
 
