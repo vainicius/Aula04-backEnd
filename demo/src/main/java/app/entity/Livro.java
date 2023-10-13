@@ -8,18 +8,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Getter @Setter
 public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @Getter @Setter
     private String nome;
 
-    @Getter @Setter
     private String autor;
 
-    @Getter @Setter
     private String genero;
 }

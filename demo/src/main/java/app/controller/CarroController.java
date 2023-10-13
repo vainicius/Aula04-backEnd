@@ -50,12 +50,9 @@ public class CarroController {
 
         @DeleteMapping("/deletar/{id}")
     private ResponseEntity<HttpStatus>delete(@PathVariable("id") final long id){
-            try{
             service.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
-            }
+
         }
     }
 

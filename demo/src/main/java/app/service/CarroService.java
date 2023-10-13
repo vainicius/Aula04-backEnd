@@ -5,6 +5,7 @@ import app.dto.PessoaDTO;
 import app.entity.Carro;
 import app.repository.CarroRepository;
 import app.repository.PessoaRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -26,6 +27,7 @@ public class CarroService {
         carro.setMarca(carroDTO.getMarca());
         carro.setPlaca(carroDTO.getPlaca());
         carro.setModelo(carroDTO.getModelo());
+        carro.setId(carroDTO.getId());
         return carro;
     }
 
@@ -34,6 +36,7 @@ public class CarroService {
         carroDTO.setMarca(carro.getMarca());
         carroDTO.setPlaca(carro.getPlaca());
         carroDTO.setModelo(carro.getModelo());
+        carroDTO.setId(carro.getId());
         return carroDTO;
     }
 
@@ -56,9 +59,9 @@ public class CarroService {
     public CarroDTO put (CarroDTO carroDTO, Long id){
         return this.toCarroDTO(repository.save(toCarro(carroDTO)));
     }
-
-    public void delete(Long id){
+    @Transactional
+    public void delete(long id){
         PessoaDTO pessoaDTO = new PessoaDTO();
-        pessoaRepository.deleteById(id);
+        repository.deleteById(id);
     }
 }
